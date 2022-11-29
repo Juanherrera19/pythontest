@@ -19,12 +19,13 @@ boton.click()
 time.sleep(5)
 
 #then
-#resultado = driver.find_element_by_xpath("//*[@id-'content']/div/section/forum/ul/p")
-#no results found.
-#resultado.
+resultado = driver.find_element_by_xpath("//*[@id-'content']/div/section/forum/ul/p")
+assert resultado.text == 'no results found.'
+time.sleep(3)
+
 driver.close()
 
-#####################################
+###################################
 #Positivo
 #given
 driver = webdriver.Chrome(executable_path=r"C:\Users\Juan H\Downloads\PYTHON_TEST\chromedriver.exe")
@@ -38,5 +39,9 @@ boton = driver.find_element(By.ID, "submit")
 boton.click()
 time.sleep(5)
 
-driver.close()
+#then
+resultado = driver.find_element(By.XPATH, "//*[@id='content']/div/section/form/ul/li[1]/h3/a")
+assert resultado.text == 'PEP 526 -- Syntax for Variable Annotations'
+time.sleep(3)
 
+driver.close()
